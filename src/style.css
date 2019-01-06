@@ -1,0 +1,35 @@
+html {
+    font-size: 10px;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+}
+.main-navigation {
+    width: 100%;
+}
+.main-navigation__list{
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    min-width: 5rem;
+    background-color: rgb(128, 128, 128);
+}
+.main-navigation__item {
+    margin: 0;
+    padding: 0;
+    line-height: 5rem;
+    flex: 1 1 20rem;
+    text-align: center;
+    font-size: 3.6rem;
+    cursor: pointer;
+    border: .1rem solid rgb(169, 169, 169);
+    will-change: background-color;
+    transition: background-color .5s;
+}
+.main-navigation__item:hover {
+    background-color: rgb(169, 169, 169);
+}
