@@ -1,5 +1,9 @@
 
 let field = document.querySelector('.game-field');
+let content = [
+    'img/fb.svg',
+    'img/line.svg'
+]
 
 let wrapper = document.createElement('div');
 wrapper.classList.add('game-field__wrapper');
@@ -7,7 +11,7 @@ wrapper.classList.add('game-field__wrapper');
 field.appendChild(wrapper);
 createCard = () => {
     let tmpArr = [];
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 16; i++) {
         const card = document.createElement('div');
         const cardWrapper = document.createElement('div');
         const cardFront = document.createElement('div');
@@ -16,7 +20,7 @@ createCard = () => {
         cardWrapper.classList.add('card__wrapper');
         cardFront.classList.add('card__front');
         cardBack.classList.add('card__back');
-        cardBack.innerHTML = i + 1;
+        cardBack.style.backgroundImage = 'img/fb.svg';
         card.appendChild(cardWrapper);
         cardWrapper.appendChild(cardFront);
         cardWrapper.appendChild(cardBack);
@@ -27,11 +31,8 @@ createCard = () => {
 randomize = () => {
     return createCard().sort(function() { return 0.5 - Math.random() });
 }
-
-randomize().forEach(val => {
-    wrapper.appendChild(val);
-});
-randomize().forEach(val => {
+//заменить createCard на randomize
+createCard().forEach(val => {
     wrapper.appendChild(val);
 });
 
@@ -41,12 +42,3 @@ cardArr.forEach(value => {
         value.classList.toggle('card__wrapper--click');
     })
 })
-
-createPool = () => {
-    let arr = [];
-    if (arr.length > 1) {
-        return;
-    } else {
-        
-    }
-}
