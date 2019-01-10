@@ -57,6 +57,9 @@ body {
     margin: .5rem;
     perspective: 100rem;
     cursor: pointer;
+    will-change: opacity;
+    transition: opacity .5s linear;
+    opacity: 1;
 
 }
 .card__wrapper {
@@ -71,6 +74,9 @@ body {
     transition: transform .5s;
 }
 .card__wrapper--click {
+    transform: rotateY(180deg);
+}
+.help-btn--click {
     transform: rotateY(180deg);
 }
 .card__front {
@@ -99,4 +105,7 @@ body {
     line-height: 15rem;
     color: rgb(255, 255, 255);
     text-align: center;
+}
+.same-cards {
+    opacity: 0;
 }
