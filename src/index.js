@@ -1,4 +1,4 @@
-
+$(document).ready(function game(){
   wrapper = document.querySelector('.game-field__wrapper');
   let cardsPool = [];
   let openedCards = [];
@@ -13,13 +13,13 @@
     { 'id' : 'whatsapp', 'img' : 'img/whatsapp.svg'}
   ];
   const data = [...imageArray, ...imageArray];
-  //создать num-блоков
+//создать value-блоков
   function createCardField (value) {
     value.forEach( val => {
       wrapper.appendChild( val );
     } );
   }
-  //создать поле из num карточек через fn createCard(num)
+//создать поле из num карточек через fn createCard(num)
   function createCard ( num ) {
     let tmpArr = [];
     for (var i = 0; i < num; i++) {
@@ -39,7 +39,7 @@
     return tmpArr;
 
   }
-  //перемешать массив
+//перемешать массив
   function shuffleImages () {
 
     var j, x, i;
@@ -51,7 +51,7 @@
     }
     return data;
   }
-  // наполнить блоки 
+// наполнить блоки 
   function insertContentInCards() {
     cardBackArr = $('.card__back').toArray();
     let shuffledArray = new shuffleImages();
@@ -64,48 +64,50 @@
       });
     });
   }
-
-function gameRules(val) {
-  const cardFrontArray = $('.card__front').toArray();
-  if (cardFrontArray.includes(val.originalTarget) !== true) {
-    console.log(false);
-  }
-  else {
-    val.originalTarget.offsetParent.classList.toggle('card__wrapper--click');
-    cardsPool.push(event.target.nextSibling);
-    if (cardsPool.length === 2 && checkCardsPool(cardsPool)) {
-      cardsPool.forEach(val => {
-        val.offsetParent.offsetParent.classList.add('same-cards');
-        openedCards.push(val.offsetParent.offsetParent);
-      });
-      cardsPool = [];
-      
+//игровая логика
+  function gameRules(val) {
+    const cardFrontArray = $('.card__front').toArray();
+    if (cardFrontArray.includes(val.originalTarget) !== true) {
+      return;
     }
-    else if (cardsPool.length > 1 && checkCardsPool(cardsPool) !== true) {
-      cardsPool.forEach(value => {
-        setTimeout(() => {
-          value.offsetParent.classList.remove('card__wrapper--click');
-        }, 500);
-      });
-      cardsPool = [];
+    else {
+      val.originalTarget.offsetParent.classList.toggle('card__wrapper--click');
+      cardsPool.push(event.target.nextSibling);
+      if (cardsPool.length === 2 && checkCardsPool(cardsPool)) {
+        cardsPool.forEach(val => {
+          val.offsetParent.offsetParent.classList.add('same-cards');
+          openedCards.push(val.offsetParent.offsetParent);
+        });
+        cardsPool = [];
+        
+      }
+      else if (cardsPool.length > 1 && checkCardsPool(cardsPool) !== true) {
+        cardsPool.forEach(value => {
+          setTimeout(() => {
+            value.offsetParent.classList.remove('card__wrapper--click');
+          }, 500);
+        });
+        cardsPool = [];
+      }
     }
   }
-}
-function win() {
-  if (openedCards.length == 16) {
-    alert('Победа!');
+//если победа
+  function win() {
+    if (openedCards.length == 16) {
+      alert('Победа!');
+    }
   }
-}
+//открыть блоки на 2 секунды
   function help() {
     setTimeout( () => {
       $('.card__wrapper').addClass('help-btn--click');
-    }, 500);
+    }, 300);
     setTimeout( () => {
       $('.card__wrapper').removeClass('help-btn--click');
-    }, 2000);
+    }, 2300);
     console.log('click');
   }
-
+//проверка карт на идентичность
   function checkCardsPool (arr) {
     return arr[0].dataset.name === arr[1].dataset.name;
   }
@@ -133,3 +135,4 @@ function win() {
       insertContentInCards();
     },500);
   });
+})
