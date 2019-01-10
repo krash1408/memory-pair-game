@@ -3,14 +3,14 @@
   let cardsPool = [];
   let openedCards = [];
   const imageArray = [
-    { 'id' : 'fb',       'img' : '../img/fb.svg'},
-    { 'id' : 'line',     'img' : '../img/line.svg'},
-    { 'id' : 'skype',    'img' : '../img/skype.svg'},
-    { 'id' : 'snap',     'img' : '../img/snap.svg'},
-    { 'id' : 'tlg',      'img' : '../img/tlg.svg'},
-    { 'id' : 'viber',    'img' : '../img/viber.svg'},
-    { 'id' : 'weixin',   'img' : '../img/weixin.svg'},
-    { 'id' : 'whatsapp', 'img' : '../img/whatsapp.svg'}
+    { 'id' : 'fb',       'img' : '/img/fb.svg'},
+    { 'id' : 'line',     'img' : '/img/line.svg'},
+    { 'id' : 'skype',    'img' : '/img/skype.svg'},
+    { 'id' : 'snap',     'img' : '/img/snap.svg'},
+    { 'id' : 'tlg',      'img' : '/img/tlg.svg'},
+    { 'id' : 'viber',    'img' : '/img/viber.svg'},
+    { 'id' : 'weixin',   'img' : '/img/weixin.svg'},
+    { 'id' : 'whatsapp', 'img' : '/img/whatsapp.svg'}
   ];
   const data = [...imageArray, ...imageArray];
   //создать num-блоков
