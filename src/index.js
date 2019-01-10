@@ -93,7 +93,7 @@ function gameRules(val) {
 }
 function win() {
   if (openedCards.length == 16) {
-    alert('You win!');
+    alert('Победа!');
   }
 }
   function help() {
@@ -118,7 +118,6 @@ function win() {
 
   $('.help-btn').click( function(){
     help();
-    return;
   } );
 
   $('.start-btn').click(function() {
