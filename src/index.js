@@ -56,7 +56,7 @@ createCard(16).forEach(val => {
     wrapper.appendChild(val);
 });
 
-let cardArr = document.querySelectorAll('.card__wrapper');
+let cardArr = $('.card__wrapper').toArray();
     cardArr.forEach(value => {
         value.addEventListener('click', () => {
             value.classList.toggle('card__wrapper--click');
