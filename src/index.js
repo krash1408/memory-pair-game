@@ -94,6 +94,10 @@ $(document).ready(function game(){
 //если победа
   function win() {
     if (openedCards.length == 16) {
+      openedCards = [];
+      $('.card').toArray().forEach(val => {
+        wrapper.removeChild(val);
+      });
       alert('Победа!');
     }
   }
