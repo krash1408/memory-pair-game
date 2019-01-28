@@ -3,7 +3,7 @@ function game() {
   wrapper = document.querySelector( '.game-field__wrapper' );
   let cardsPool = [  ];
   let openedCards = [  ];
-  const imageArray = [
+  const data = [
     { 'id' : 'fb',       'img' : 'img/fb.svg' },
     { 'id' : 'line',     'img' : 'img/line.svg' },
     { 'id' : 'skype',    'img' : 'img/skype.svg' },
@@ -13,7 +13,9 @@ function game() {
     { 'id' : 'weixin',   'img' : 'img/weixin.svg' },
     { 'id' : 'whatsapp', 'img' : 'img/whatsapp.svg' }
   ];
-  const data = [...imageArray, ...imageArray];
+  const shuffledData = function () {
+    return [...data, ...data].sort( () => { return 0.5 - Math.random() })
+  }
   //создать value-блоков
   function createCardField ( value ) {
     value.forEach( val => {
@@ -33,29 +35,16 @@ function game() {
       cardFront.classList.add('card__front');
       cardBack.classList.add('card__back');
       card.appendChild(cardWrapper);
-      cardWrapper.appendChild(cardFront);
-      cardWrapper.appendChild(cardBack);
+      cardWrapper.append(cardFront, cardBack);
       tmpArr.push(card);
     }
     return tmpArr;
 
   }
-  //перемешать массив
-  function shuffleImages () {
-
-    var j, x, i;
-    for (i = data.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      x = data[i];
-      data[i] = data[j];
-      data[j] = x;
-    }
-    return data;
-  }
   // наполнить блоки 
   function insertContentInCards() {
     cardBackArr = document.querySelectorAll('.card__back');
-    let shuffledArray = new shuffleImages();
+    let shuffledArray = new shuffledData();
     cardBackArr.forEach((val, ind) => {
       val.style.backgroundImage = `url(${shuffledArray[ind].img})`;
       val.style.backgroundRepeat = 'no-repeat';
@@ -65,7 +54,6 @@ function game() {
   }
   //игровая логика
   function gameRules(val) {
-    const cardFrontArray = document.querySelectorAll('.card__front');
     if (!event.target.classList.contains('card__front')) {
       return;
     }
