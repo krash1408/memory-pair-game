@@ -1,0 +1,25 @@
+{
+  "name": "memory-pair-game",
+  "version": "1.0.1",
+  "description": "[Play](https://krash1408.github.io/memory-pair-game/)",
+  "main": "src/index.html",
+  "scripts": {
+    "watch": "parcel serve src/index.html",
+    "prebuild": "shx rm -rf dist",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krash1408/memory-pair-game.git"
+  },
+  "author": "Konstantin Makarevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krash1408/memory-pair-game/issues"
+  },
+  "homepage": "https://github.com/krash1408/memory-pair-game#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "shx": "^0.3.2"
+  }
+}
