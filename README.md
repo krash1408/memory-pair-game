@@ -1,4 +1,4 @@
-# Memoty pare game.  
+# Memory pare game.  
 
 A game where you chose a pares of cards.  
 
