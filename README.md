@@ -1,4 +1,6 @@
-# A game where you chose a pares of cards.  
+# Memoty pare game.  
+
+A game where you chose a pares of cards.  
 
 [To play game click here.](https://krash1408.github.io/memory-pair-game/)  
 
